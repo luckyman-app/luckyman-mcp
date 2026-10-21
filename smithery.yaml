@@ -1,0 +1,8 @@
+# Smithery.ai configuration — external URL server (no code, documentation-only repo)
+runtime: external
+startCommand:
+  type: http
+  url: https://mcp.luckyman.app/mcp
+  configSchema:
+    type: object
+    properties: {}
