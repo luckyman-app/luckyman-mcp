@@ -1,5 +1,5 @@
 > **Free, keyless US-market financial data for AI agents.**
-> Indices · Quotes · OHLCV history · Options chains · SEC filings & XBRL · Company news, profiles, metrics.
+> Indices · Quotes · OHLCV history · Options chains · SEC filings & XBRL.
 
 # luckyman-mcp
 
@@ -32,13 +32,8 @@ No OAuth dance, no client registration. If your client needs nothing else — th
 | `get_option_chain` | Delayed chains w/ bid-ask, volume, OI, IV, greeks (CBOE) |
 | `get_filings` | Latest SEC EDGAR filings (form type, date, EDGAR link) |
 | `get_xbrl` | SEC XBRL concept series: revenue / net_income / eps / cash / equity / assets / liabilities / operating_income / free_cash_flow |
-| `get_company_news` | Recent news articles per ticker (headline, source, URL, summary) |
-| `get_company_profile` | Company profile: name, exchange, industry, IPO date, market cap, website, logo |
-| `get_symbol_search` | Resolve a company name to tradable ticker symbols |
-| `get_basic_metrics` | Valuation & profitability: P/E, P/B, dividend yield, 52w range, ROE, margins, growth, beta |
 | `get_health` | Data-source liveness |
 
-Workflow tip: `get_symbol_search` first when you only have a company name, then `get_quotes` / `get_history` / `get_basic_metrics`.
 
 ## HTTP primitives (no MCP needed)
 
@@ -51,10 +46,6 @@ GET https://mcp.luckyman.app/indices
 GET https://mcp.luckyman.app/filings?symbol=MSFT
 GET https://mcp.luckyman.app/options?symbol=AAPL
 GET https://mcp.luckyman.app/xbrl?symbol=AAPL&concept=revenue
-GET https://mcp.luckyman.app/news?symbol=AAPL
-GET https://mcp.luckyman.app/profile?symbol=AAPL
-GET https://mcp.luckyman.app/search?query=nvidia
-GET https://mcp.luckyman.app/metrics?symbol=AAPL
 GET https://mcp.luckyman.app/health
 ```
 
@@ -62,7 +53,7 @@ Full spec: [`/openapi.json`](https://mcp.luckyman.app/openapi.json) · [`/llms.t
 
 ## Data sources
 
-Yahoo Finance · CBOE · SEC EDGAR (official, zero-mediation) · Finnhub (company news/profile/metrics).
+Yahoo Finance · CBOE · SEC EDGAR (official, zero-mediation).
 Prices in USD. Quotes cached ~60s. Index quotes cross-sourced with a 5-day freshness guard.
 
 ## Why Lucky
